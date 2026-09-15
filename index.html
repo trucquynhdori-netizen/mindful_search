@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mindful Search — A Small Moment of Support</title>
+  <meta name="description" content="A gentle self-reflection tool for exploring feelings, finding trusted resources, and choosing a small calming activity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Mindful Search home">
+      <span class="brand-mark">✦</span>
+      <span>Mindful Search</span>
+    </a>
+    <a class="header-link" href="#support">Need urgent help?</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow">A gentle place to begin</div>
+      <h1>You don’t have to figure it all out at once.</h1>
+      <p class="hero-copy">Search a feeling, thought, or situation you’re experiencing. We’ll help you reflect on it and connect you with trusted information and University of Utah support resources.</p>
+
+      <form class="search-card" id="searchForm">
+        <label for="searchInput">What’s been on your mind?</label>
+        <div class="search-row">
+          <input id="searchInput" type="text" autocomplete="off" placeholder="e.g. I feel anxious and keep overthinking" />
+          <button type="submit" class="primary-btn">Explore <span>→</span></button>
+        </div>
+        <div class="chips" aria-label="Example searches">
+          <button type="button" class="chip" data-query="I feel sad and unmotivated">Sad &amp; unmotivated</button>
+          <button type="button" class="chip" data-query="I feel anxious and keep overthinking">Anxious &amp; overthinking</button>
+          <button type="button" class="chip" data-query="I don't like talking to people">I avoid socializing</button>
+          <button type="button" class="chip" data-query="I feel insecure and compare myself to everyone">Feeling insecure</button>
+        </div>
+      </form>
+
+      <p class="safety-note"><span>♡</span> This is a reflection and resource tool, not a diagnosis or a replacement for professional care.</p>
+    </section>
+
+    <section class="results-section hidden" id="resultsSection" aria-live="polite">
+      <div class="section-heading">
+        <span class="eyebrow">Your reflection</span>
+        <h2>Here’s a place to start.</h2>
+      </div>
+      <div id="resultsContent"></div>
+    </section>
+
+    <section class="reset-section" id="resetSection">
+      <div class="dice-card">
+        <div class="dice-copy">
+          <div class="eyebrow">Need a tiny reset?</div>
+          <h2>Roll the dice.</h2>
+          <p>You don’t need to fix everything right now. Let chance choose one small, kind thing to try for the next few minutes.</p>
+        </div>
+        <button class="dice-button" id="diceButton" type="button" aria-label="Roll the dice">
+          <span class="dice-face" id="diceFace">⚄</span>
+          <span>Roll for a reset</span>
+        </button>
+      </div>
+      <div class="reset-result hidden" id="resetResult"></div>
+    </section>
+
+    <section class="campus-section" id="utah-resources">
+      <div class="section-heading">
+        <span class="eyebrow">Support at the U</span>
+        <h2>University of Utah resources</h2>
+        <p class="campus-intro">You do not have to navigate support alone. These official University of Utah services can help with counseling, wellness, resource navigation, and urgent mental health needs.</p>
+      </div>
+      <div class="campus-grid">
+        <article class="campus-card"><span class="campus-badge">Counseling</span><h3>University Counseling Center</h3><p>Individual, group, relationship, crisis, workshop, and other mental health support for eligible U students.</p><a href="https://counselingcenter.utah.edu/" target="_blank" rel="noopener noreferrer">Explore UCC services →</a></article>
+        <article class="campus-card"><span class="campus-badge">Well-being</span><h3>Center for Campus Wellness</h3><p>Wellness coaching, health education, peer well-being navigation, basic-needs support, and other student wellness programs.</p><a href="https://wellness.utah.edu/" target="_blank" rel="noopener noreferrer">Explore Campus Wellness →</a></article>
+        <article class="campus-card"><span class="campus-badge">Student-to-student</span><h3>Peer Well-being Navigation</h3><p>Student staff can help fellow students learn about campus resources and think through next steps in their wellness journey.</p><a href="https://wellness.utah.edu/for-students.php" target="_blank" rel="noopener noreferrer">Find peer navigation →</a></article>
+        <article class="campus-card"><span class="campus-badge">Virtual support</span><h3>Mantra Health</h3><p>U students can access ConnectNow for in-the-moment support; phone support is available 24/7 at 888-319-5111.</p><a href="https://counselingcenter.utah.edu/services/crisis.php" target="_blank" rel="noopener noreferrer">See virtual support options →</a></article>
+      </div>
+    </section>
+
+    <section class="feedback-section">
+      <div class="feedback-card">
+        <div>
+          <div class="eyebrow">Help us make this kinder</div>
+          <h2>Was Mindful Search helpful?</h2>
+          <p>Your feedback helps us improve the experience.</p>
+        </div>
+        <form id="feedbackForm" class="feedback-form">
+          <input type="hidden" id="ratingInput" name="rating" value="" />
+
+          <div class="stars" role="radiogroup" aria-label="Rate Mindful Search from 1 to 5 stars">
+            <button type="button" class="star" data-rating="1" aria-label="1 star">★</button>
+            <button type="button" class="star" data-rating="2" aria-label="2 stars">★</button>
+            <button type="button" class="star" data-rating="3" aria-label="3 stars">★</button>
+            <button type="button" class="star" data-rating="4" aria-label="4 stars">★</button>
+            <button type="button" class="star" data-rating="5" aria-label="5 stars">★</button>
+          </div>
+          <textarea id="feedbackText" name="feedback" rows="3" placeholder="Tell us anything you’d like (optional)"></textarea>
+          <p class="feedback-helper">Your feedback is submitted through Google Forms. Please do not include private health information.</p>
+          <button class="primary-btn" type="submit">Send feedback</button>
+        </form>
+        <div class="feedback-thankyou hidden" id="feedbackThankyou"></div>
+      </div>
+    </section>
+
+    <section class="support-section" id="support">
+      <div class="support-card">
+        <div class="support-icon">♥</div>
+        <div>
+          <h2>If you need urgent mental health support</h2>
+          <p>University of Utah students can contact the UCC at <strong>801-581-6826</strong> Monday–Friday, 8 AM–5 PM. On campus, MH1 is available <strong>4 PM–2 AM</strong> at <strong>385-321-5356</strong>. For 24/7 crisis support, call or text <strong>988</strong>. In a life-threatening emergency, call <strong>911</strong>.</p>
+          <a class="support-link" href="https://counselingcenter.utah.edu/services/crisis.php" target="_blank" rel="noopener noreferrer">View official U crisis resources →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Mindful Search is a student-built educational resource-navigation project. It is not an official University of Utah service and does not provide medical advice or diagnosis.</p>
+    <p>Built as a static website • No account required</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
